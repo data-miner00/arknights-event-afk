@@ -2,14 +2,10 @@ from arknights import (
     locate_image_position_and_click,
     wait_until_operation_completed,
     is_enough_sanity,
-    wait_for_seconds
+    wait_for_seconds,
 )
-from arknights.screens.home_screen import (
-    BATTLE_BUTTON
-)
-from arknights.screens.operation_selection_screen import (
-    SELECT_FARM_LOBBY_BUTTON
-)
+from arknights.screens.home_screen import BATTLE_BUTTON
+from arknights.screens.operation_selection_screen import SELECT_FARM_LOBBY_BUTTON
 from arknights.screens.farm_item_lobby_screen import (
     FARM_EXP_ENTRY,
     FARM_MONEY_ENTRY,
@@ -25,12 +21,8 @@ from arknights.screens.stage_selection_screen import (
     FARM_LS5_EXP_BUTTON,
     PREPARE_OPERATION_BUTTON,
 )
-from arknights.screens.team_selection_screen import (
-    START_OPERATION_BUTTON
-)
-from arknights.screens.completed_operation_screen import (
-    COMPLETED_OPERATION_INDICATOR
-)
+from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
+from arknights.screens.completed_operation_screen import COMPLETED_OPERATION_INDICATOR
 
 
 def navigate_to_target_stage(stage: str):

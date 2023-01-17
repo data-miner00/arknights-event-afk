@@ -1,4 +1,3 @@
-
 FARM_EXP_ENTRY = "images/arkn_farm_exp_btn.png"
 FARM_MONEY_ENTRY = "images/arkn_farm_money_btn.png"
 FARM_TALENT_BOOK_ENTRY = "images/arkn_farm_skill_book_btn.png"
