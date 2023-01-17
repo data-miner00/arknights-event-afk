@@ -3,22 +3,10 @@ import time
 
 
 def locate_image_position_and_click(image_path: str):
-    x, y = pyautogui.locateCenterOnScreen(image_path, confidence=0.7)
-    pyautogui.moveTo(x, y)
+    location = pyautogui.locateCenterOnScreen(image_path, confidence=0.7)
+    pyautogui.moveTo(location.x, location.y)
     time.sleep(3)
     pyautogui.leftClick()
-
-
-def click_on_prepare_operation_button():
-    locate_image_position_and_click("images/arkn_start_operation.png")
-
-
-def click_on_start_operation_button():
-    locate_image_position_and_click("images/arkn_start_operation_button.png")
-
-
-def click_on_stage_completed_indicator():
-    locate_image_position_and_click("images/arkn_stage_completed_indicator_2.png")
 
 
 def is_enough_sanity() -> bool:
@@ -34,3 +22,16 @@ def is_enough_sanity() -> bool:
     )
 
     return maybe_not_enough_sanity is None
+
+
+def wait_for_seconds(seconds: int):
+    time.sleep(seconds)
+
+
+def wait_until_operation_completed(callback):
+    while True:
+        try:
+            callback()
+            break
+        except Exception as e:
+            wait_for_seconds(1)
