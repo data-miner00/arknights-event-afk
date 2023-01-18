@@ -65,4 +65,3 @@ def start_farming():
 
         print(f"Round {round} completed.")
         round += 1
-        break
