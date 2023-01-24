@@ -20,12 +20,40 @@ from arknights.screens.stage_selection_screen import (
     FARM_CE5_MONEY_BUTTON,
     FARM_LS5_EXP_BUTTON,
     PREPARE_OPERATION_BUTTON,
+    FARM_PRB2_SNIPER_CASTER_BUTTON,
+    FARM_PRD2_GUARD_SPECIALIST_BUTTON
 )
 from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
 from arknights.screens.completed_operation_screen import COMPLETED_OPERATION_INDICATOR
 
 
+stage_map = {
+    'ca5': {
+        'lobby_icon': FARM_TALENT_BOOK_ENTRY,
+        'stage_icon': FARM_CA5_TALENT_BOOK_BUTTON
+    },
+    'ce5': {
+        'lobby_icon': FARM_MONEY_ENTRY,
+        'stage_icon': FARM_CE5_MONEY_BUTTON
+    },
+    'ls5': {
+        'lobby_icon': FARM_EXP_ENTRY,
+        'stage_icon': FARM_LS5_EXP_BUTTON
+    },
+    'prb2': {
+        'lobby_icon': FARM_SNIPER_CASTER_ENTRY,
+        'stage_icon': FARM_PRB2_SNIPER_CASTER_BUTTON
+    },
+    'prd2': {
+        'lobby_icon': FARM_GUARD_SPECIALIST_ENTRY,
+        'stage_icon': FARM_PRD2_GUARD_SPECIALIST_BUTTON
+    }
+}
+
+
 def navigate_to_target_stage(stage: str):
+    stage_ui = stage_map[stage]
+
     wait_until_operation_completed(
         lambda: locate_image_position_and_click(BATTLE_BUTTON)
     )
@@ -33,10 +61,10 @@ def navigate_to_target_stage(stage: str):
         lambda: locate_image_position_and_click(SELECT_FARM_LOBBY_BUTTON)
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(FARM_EXP_ENTRY)
+        lambda: locate_image_position_and_click(stage_ui['lobby_icon'])
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(FARM_LS5_EXP_BUTTON)
+        lambda: locate_image_position_and_click(stage_ui['stage_icon'])
     )
 
 
