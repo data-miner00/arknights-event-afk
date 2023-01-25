@@ -4,8 +4,8 @@ from arknights.screens.not_enough_sanity_screen import NOT_ENOUGH_SANITY_INDICAT
 from arknights.screens.stage_selection_screen import PREPARE_OPERATION_BUTTON
 
 
-def locate_image_position_and_click(image_path: str):
-    location = pyautogui.locateCenterOnScreen(image_path, confidence=0.7)
+def locate_image_position_and_click(image_path: str, confidence=0.7):
+    location = pyautogui.locateCenterOnScreen(image_path, confidence=confidence)
     pyautogui.moveTo(location.x, location.y)
     time.sleep(3)
     pyautogui.leftClick()
