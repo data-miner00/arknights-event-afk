@@ -22,7 +22,8 @@ from arknights.screens.stage_selection_screen import (
     PREPARE_OPERATION_BUTTON,
     FARM_PRB2_SNIPER_CASTER_BUTTON,
     FARM_PRD2_GUARD_SPECIALIST_BUTTON,
-    FARM_PRC2_VANGUARD_SUPPORTER_BUTTON
+    FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
+    FARM_PRA2_DEFENDER_MEDIC_BUTTON
 )
 from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
 from arknights.screens.completed_operation_screen import COMPLETED_OPERATION_INDICATOR
@@ -52,6 +53,10 @@ stage_map = {
     'prc2': {
         'lobby_icon': FARM_VANGUARD_SUPPORTER_ENTRY,
         'stage_icon': FARM_PRC2_VANGUARD_SUPPORTER_BUTTON
+    },
+    'pra2': {
+        'lobby_icon': FARM_MEDIC_DEFENDER_ENTRY,
+        'stage_icon': FARM_PRA2_DEFENDER_MEDIC_BUTTON
     }
 }
 
