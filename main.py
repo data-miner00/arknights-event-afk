@@ -16,7 +16,10 @@ skip_navigation = False
 first_login = False
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="")
+    parser = argparse.ArgumentParser(
+        prog="Arknights CLI",
+        description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
+        epilog="arkn/arkn 0.1.0")
     parser.add_argument('stage', metavar='stage', type=str, help='the stage to be farmed')
     parser.add_argument('-sl', '--skip-login', action=argparse.BooleanOptionalAction, help='flag to skip the login process from the landing page', default=False)
     parser.add_argument('-sn', '--skip-navigation', action=argparse.BooleanOptionalAction, help='flag to skip the navigation from home page to the destination stage', default=False)
