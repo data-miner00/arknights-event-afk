@@ -1,47 +1,42 @@
-import pyautogui
-import time
-from arknights import (
-    click_on_prepare_operation_button,
-    click_on_start_operation_button,
-    click_on_stage_completed_indicator,
-    is_enough_sanity,
+import argparse
+from arknights.chores.login import (
+    from_login_to_lobby,
+    close_calendar
 )
+from arknights.chores.farm_stage import navigate_to_target_stage, start_farming
 
+number_of_rounds = 3
+until_sanity_used_up = False
+auto_refill_sanity = False
+number_of_refills = 0
+annihilation_mode = False
+farm_stage = ""
+skip_login = False
+skip_navigation = False
+first_login = False
 
 if __name__ == "__main__":
-    round = 1
+    parser = argparse.ArgumentParser(
+        prog="Arknights CLI",
+        description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
+        epilog="arkn/arkn 0.1.0")
+    parser.add_argument('stage', metavar='stage', type=str, help='the stage to be farmed')
+    parser.add_argument('-sl', '--skip-login', action=argparse.BooleanOptionalAction, help='flag to skip the login process from the landing page', default=False)
+    parser.add_argument('-sn', '--skip-navigation', action=argparse.BooleanOptionalAction, help='flag to skip the navigation from home page to the destination stage', default=False)
+    parser.add_argument('-fl', '--first-login', action=argparse.BooleanOptionalAction, help='first login of the day', default=False)
 
-    while True:
-        time.sleep(2)
-        while True:
-            try:
-                click_on_prepare_operation_button()
-                break
-            except Exception as e:
-                print(e)
-                time.sleep(1)
+    args = parser.parse_args()
 
-        time.sleep(3)
-        if not is_enough_sanity():
-            print("Not enough sanity to proceed.")
-            break
+    skip_login = args.skip_login
+    first_login = args.first_login
+    if not skip_login:
+        from_login_to_lobby()
 
-        while True:
-            try:
-                click_on_start_operation_button()
-                break
-            except Exception as e:
-                print(e)
-                time.sleep(1)
+        if first_login:
+            close_calendar()
 
-        time.sleep(80)
+    skip_navigation = args.skip_navigation
+    if not skip_navigation:
+        navigate_to_target_stage(args.stage)
 
-        while True:
-            try:
-                click_on_stage_completed_indicator()
-                break
-            except Exception as e:
-                time.sleep(1)
-
-        print(f"Round {round} completed.")
-        round += 1
+    start_farming()
