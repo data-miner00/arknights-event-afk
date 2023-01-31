@@ -1,8 +1,5 @@
 import argparse
-from arknights.chores.login import (
-    from_login_to_lobby,
-    close_calendar
-)
+from arknights.chores.login import from_login_to_lobby, close_calendar
 from arknights.chores.farm_stage import navigate_to_target_stage, start_farming
 
 number_of_rounds = 3
@@ -19,12 +16,39 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="Arknights CLI",
         description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
-        epilog="arkn/arkn 0.1.0")
-    parser.add_argument('stage', metavar='stage', type=str, help='the stage to be farmed')
-    parser.add_argument('-sl', '--skip-login', action=argparse.BooleanOptionalAction, help='flag to skip the login process from the landing page', default=False)
-    parser.add_argument('-sn', '--skip-navigation', action=argparse.BooleanOptionalAction, help='flag to skip the navigation from home page to the destination stage', default=False)
-    parser.add_argument('-fl', '--first-login', action=argparse.BooleanOptionalAction, help='first login of the day', default=False)
-    parser.add_argument('-rc', '--refill-count', type=int, help='refill count to perform when the sanity runs out', default=0)
+        epilog="arkn/arkn 0.1.0",
+    )
+    parser.add_argument(
+        "stage", metavar="stage", type=str, help="the stage to be farmed"
+    )
+    parser.add_argument(
+        "-sl",
+        "--skip-login",
+        action=argparse.BooleanOptionalAction,
+        help="flag to skip the login process from the landing page",
+        default=False,
+    )
+    parser.add_argument(
+        "-sn",
+        "--skip-navigation",
+        action=argparse.BooleanOptionalAction,
+        help="flag to skip the navigation from home page to the destination stage",
+        default=False,
+    )
+    parser.add_argument(
+        "-fl",
+        "--first-login",
+        action=argparse.BooleanOptionalAction,
+        help="first login of the day",
+        default=False,
+    )
+    parser.add_argument(
+        "-rc",
+        "--refill-count",
+        type=int,
+        help="refill count to perform when the sanity runs out",
+        default=0,
+    )
 
     args = parser.parse_args()
 

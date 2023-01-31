@@ -1,10 +1,7 @@
-from arknights import (
-    locate_image_position_and_click,
-    wait_until_operation_completed
-)
+from arknights import locate_image_position_and_click, wait_until_operation_completed
 from arknights.screens.not_enough_sanity_screen import (
     REFILL_SANITY_CONFIRM_BUTTON,
-    REFILL_SANITY_CLOSE_BUTTON
+    REFILL_SANITY_CLOSE_BUTTON,
 )
 
 

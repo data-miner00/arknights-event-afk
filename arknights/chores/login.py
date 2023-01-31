@@ -7,7 +7,7 @@ from arknights.screens.initialize_screen import START_INDICATOR
 from arknights.screens.login_screen_2 import ENTER_GAME_BUTTON
 from arknights.screens.home_screen import (
     RECEIVE_REWARD_BUTTON,
-    DAILY_REWARD_EXIT_BUTTON
+    DAILY_REWARD_EXIT_BUTTON,
 )
 
 
@@ -20,6 +20,7 @@ def from_login_to_lobby():
         lambda: locate_image_position_and_click(ENTER_GAME_BUTTON)
     )
     print("Done login to lobby")
+
 
 def close_calendar():
     wait_until_operation_completed(
