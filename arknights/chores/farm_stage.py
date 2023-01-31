@@ -27,6 +27,7 @@ from arknights.screens.stage_selection_screen import (
 )
 from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
 from arknights.screens.completed_operation_screen import COMPLETED_OPERATION_INDICATOR
+from arknights.chores.sanity import refill_sanity
 
 
 stage_map = {
@@ -78,7 +79,7 @@ def navigate_to_target_stage(stage: str):
     )
 
 
-def start_farming():
+def start_farming(refill_count=0):
     round = 1
 
     while True:
@@ -89,8 +90,17 @@ def start_farming():
         wait_for_seconds(3)
 
         if not is_enough_sanity():
-            print("Not enough sanity to proceed.")
-            break
+            if refill_count > 0:
+                refill_sanity()
+                refill_count -= 1
+                print(f'Refill left: {str(refill_count)}')
+                
+                wait_until_operation_completed(
+                    lambda: locate_image_position_and_click(PREPARE_OPERATION_BUTTON)
+                )
+            else:
+                print("Not enough sanity to proceed.")
+                break
 
         wait_until_operation_completed(
             lambda: locate_image_position_and_click(START_OPERATION_BUTTON)
