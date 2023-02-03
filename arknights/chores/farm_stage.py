@@ -18,7 +18,7 @@ from arknights.screens.farm_item_lobby_screen import (
 from arknights.screens.stage_selection_screen import (
     FARM_CA5_TALENT_BOOK_BUTTON,
     FARM_CE5_MONEY_BUTTON,
-    FARM_LS5_EXP_BUTTON,
+    FARM_LS6_EXP_BUTTON,
     PREPARE_OPERATION_BUTTON,
     FARM_PRB2_SNIPER_CASTER_BUTTON,
     FARM_PRD2_GUARD_SPECIALIST_BUTTON,
@@ -36,7 +36,7 @@ stage_map = {
         "stage_icon": FARM_CA5_TALENT_BOOK_BUTTON,
     },
     "ce5": {"lobby_icon": FARM_MONEY_ENTRY, "stage_icon": FARM_CE5_MONEY_BUTTON},
-    "ls5": {"lobby_icon": FARM_EXP_ENTRY, "stage_icon": FARM_LS5_EXP_BUTTON},
+    "ls6": {"lobby_icon": FARM_EXP_ENTRY, "stage_icon": FARM_LS6_EXP_BUTTON},
     "prb2": {
         "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
         "stage_icon": FARM_PRB2_SNIPER_CASTER_BUTTON,
