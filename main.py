@@ -30,7 +30,8 @@ if __name__ == "__main__":
         "-stg",
         "--stage",
         help="the stage to be farmed",
-        default="ls5"
+        default="ls6",
+        choices=["ls6", "ca5", "ce5", "pra2", "prb2", "prc2", "prd2"]
     )
     parser.add_argument(
         "-sl",
