@@ -13,6 +13,14 @@ skip_navigation = False
 first_login = False
 
 if __name__ == "__main__":
+    print(r'   _____         __          .__       .__     __          ')
+    print(r'  /  _  \_______|  | __ ____ |__| ____ |  |___/  |_  ______')
+    print(r' /  /_\  \_  __ \  |/ //    \|  |/ ___\|  |  \   __\/  ___/')
+    print(r'/    |    \  | \/    <|   |  \  / /_/  >   Y  \  |  \___ \ ')
+    print(r'\____|__  /__|  |__|_ \___|  /__\___  /|___|  /__| /____  >')
+    print(r'        \/           \/    \/  /_____/      \/  Tooling \/ ')
+    print()
+
     parser = argparse.ArgumentParser(
         prog="Arknights CLI",
         description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
