@@ -19,7 +19,10 @@ if __name__ == "__main__":
         epilog="arkn/arkn 0.1.0",
     )
     parser.add_argument(
-        "stage", metavar="stage", type=str, help="the stage to be farmed"
+        "-stg",
+        "--stage",
+        help="the stage to be farmed",
+        default="ls5"
     )
     parser.add_argument(
         "-sl",
