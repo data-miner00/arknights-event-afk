@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "511280ceab74b104d73a7a80a82a069a851352065cbe0ad29e20adc4ac30db9e"
+            "sha256": "db45864ae46da2edff6aa60861014545b66dc9752428ad4039cc03e2cba02c24"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -424,6 +424,28 @@
                 "sha256:8533282cf70b31de8a0499e1cf420930b0013c787118872b2ec899382792e2e6"
             ],
             "version": "==1.0.4"
+        },
+        "ruff": {
+            "hashes": [
+                "sha256:11a8bf37b51108499bb0660d43786be1a6979057d491115c9c8ec362f98e839a",
+                "sha256:36e11d525a9b282b78892d5d82a9bf0def17dd9c83354a8e01f852cf43cde5ce",
+                "sha256:460600ddccb9586f88d24cc6cbef3bf87bb77a1d57aba9ed900f42591e0fa7a7",
+                "sha256:4f7309411dc185ab21fb0940825fac29fc6d064c200324eec86c40364691382c",
+                "sha256:57e85121b270b3f596391ae3c7c39941619abfc27a6cf372cf0aa525b8ca18e4",
+                "sha256:5982a169e3c511f72eddcd9e05206441ded6017e8d90e1cebf6cb9dfbf80311c",
+                "sha256:6d8c93ba539e9a43191ce86d740b1e7d2a58491902255383ff0e625e95c85d15",
+                "sha256:776acbadbac4feb9d6f077963a1b339ce6374d5911464587c304a5705bac47e0",
+                "sha256:7824ca46abe7b26cba8f4ca3f2124d2315331e4aad546409feec41f929139500",
+                "sha256:95ac8826f11f027866f5fe8bfaccf2ac4882347b4845e7ff196ad880f5b3e508",
+                "sha256:97b440d6fba04042be810111090429d3f90434f1d642e5d14e4f25e02cbe67ba",
+                "sha256:9f3210cd7faa00894c7dbdb5c370e43f43481193bceb96da5e5cded3f4079e64",
+                "sha256:adc5def9e3a6d998f2c2121011b44fee235c92dbf5417a80f0b40b38a72bd722",
+                "sha256:d0fee8371d8624cb1efd6464a17832ad23761050456fb33e1e4e24ca0dfddbc1",
+                "sha256:db68fce0818e24a766a03c2abc57a2445ccd6fd3e83f9cfb26e092bc6aac6162",
+                "sha256:fb4fc2ab7a121309c45e35759f369c14b03a32b5d5b7ffa65335aecc41668de3"
+            ],
+            "index": "pypi",
+            "version": "==0.0.245"
         },
         "six": {
             "hashes": [
