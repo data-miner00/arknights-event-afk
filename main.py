@@ -1,5 +1,7 @@
 import sys
 import argparse
+import colorama
+from colorama import Fore
 from arknights.chores.login import from_login_to_lobby, close_calendar
 from arknights.chores.farm_stage import navigate_to_target_stage, start_farming
 
@@ -12,13 +14,15 @@ skip_login = False
 skip_navigation = False
 first_login = False
 
+colorama.init(autoreset=True)
+
 if __name__ == "__main__":
-    print(r'   _____         __          .__       .__     __          ')
-    print(r'  /  _  \_______|  | __ ____ |__| ____ |  |___/  |_  ______')
-    print(r' /  /_\  \_  __ \  |/ //    \|  |/ ___\|  |  \   __\/  ___/')
-    print(r'/    |    \  | \/    <|   |  \  / /_/  >   Y  \  |  \___ \ ')
-    print(r'\____|__  /__|  |__|_ \___|  /__\___  /|___|  /__| /____  >')
-    print(r'        \/           \/    \/  /_____/      \/  Tooling \/ ')
+    print(Fore.RED      + r'   _____         __          .__       .__     __          ')
+    print(Fore.YELLOW   + r'  /  _  \_______|  | __ ____ |__| ____ |  |___/  |_  ______')
+    print(Fore.GREEN    + r' /  /_\  \_  __ \  |/ //    \|  |/ ___\|  |  \   __\/  ___/')
+    print(Fore.BLUE     + r'/    |    \  | \/    <|   |  \  / /_/  >   Y  \  |  \___ \ ')
+    print(Fore.CYAN     + r'\____|__  /__|  |__|_ \___|  /__\___  /|___|  /__| /____  >')
+    print(Fore.MAGENTA  + r'        \/           \/    \/  /_____/      \/  Tooling \/ ')
     print()
 
     parser = argparse.ArgumentParser(
