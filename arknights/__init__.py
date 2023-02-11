@@ -1,7 +1,7 @@
 import pyautogui
 import time
 from arknights.screens.not_enough_sanity_screen import NOT_ENOUGH_SANITY_INDICATOR_1
-from arknights.screens.stage_selection_screen import PREPARE_OPERATION_BUTTON
+from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
 
 
 def locate_image_position_and_click(image_path: str, confidence=0.7):
@@ -13,7 +13,7 @@ def locate_image_position_and_click(image_path: str, confidence=0.7):
 
 def is_enough_sanity() -> bool:
     maybe_enough_sanity = pyautogui.locateCenterOnScreen(
-        PREPARE_OPERATION_BUTTON, confidence=0.7
+        START_OPERATION_BUTTON, confidence=0.7
     )
 
     if maybe_enough_sanity is not None:

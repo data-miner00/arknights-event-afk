@@ -4,7 +4,6 @@ from arknights.chores.farm_stage import navigate_to_target_stage, start_farming
 
 number_of_rounds = 3
 until_sanity_used_up = False
-auto_refill_sanity = False
 number_of_refills = 0
 annihilation_mode = False
 farm_stage = ""
@@ -13,13 +12,25 @@ skip_navigation = False
 first_login = False
 
 if __name__ == "__main__":
+    print(r'   _____         __          .__       .__     __          ')
+    print(r'  /  _  \_______|  | __ ____ |__| ____ |  |___/  |_  ______')
+    print(r' /  /_\  \_  __ \  |/ //    \|  |/ ___\|  |  \   __\/  ___/')
+    print(r'/    |    \  | \/    <|   |  \  / /_/  >   Y  \  |  \___ \ ')
+    print(r'\____|__  /__|  |__|_ \___|  /__\___  /|___|  /__| /____  >')
+    print(r'        \/           \/    \/  /_____/      \/  Tooling \/ ')
+    print()
+
     parser = argparse.ArgumentParser(
         prog="Arknights CLI",
         description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
         epilog="arkn/arkn 0.1.0",
     )
     parser.add_argument(
-        "stage", metavar="stage", type=str, help="the stage to be farmed"
+        "-stg",
+        "--stage",
+        help="the stage to be farmed",
+        default="ls6",
+        choices=["ls6", "ca5", "ce6", "pra2", "prb2", "prc2", "prd2", "sk5"]
     )
     parser.add_argument(
         "-sl",
