@@ -36,4 +36,5 @@ def wait_until_operation_completed(callback):
             callback()
             break
         except Exception as e:
+            print(e)
             wait_for_seconds(1)
