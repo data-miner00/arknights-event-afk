@@ -40,28 +40,42 @@ stage_map = {
     "ca5": {
         "lobby_icon": FARM_TALENT_BOOK_ENTRY,
         "stage_icon": FARM_CA5_TALENT_BOOK_BUTTON,
+        "cost": 30,
     },
-    "ce6": {"lobby_icon": FARM_MONEY_ENTRY, "stage_icon": FARM_CE6_MONEY_BUTTON},
-    "ls6": {"lobby_icon": FARM_EXP_ENTRY, "stage_icon": FARM_LS6_EXP_BUTTON},
+    "ce6": {
+        "lobby_icon": FARM_MONEY_ENTRY,
+        "stage_icon": FARM_CE6_MONEY_BUTTON,
+        "cost": 36,
+    },
+    "ls6": {
+        "lobby_icon": FARM_EXP_ENTRY,
+        "stage_icon": FARM_LS6_EXP_BUTTON,
+        "cost": 36,
+    },
     "prb2": {
         "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
         "stage_icon": FARM_PRB2_SNIPER_CASTER_BUTTON,
+        "cost": 36,
     },
     "prd2": {
         "lobby_icon": FARM_GUARD_SPECIALIST_ENTRY,
         "stage_icon": FARM_PRD2_GUARD_SPECIALIST_BUTTON,
+        "cost": 36,
     },
     "prc2": {
         "lobby_icon": FARM_VANGUARD_SUPPORTER_ENTRY,
         "stage_icon": FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
+        "cost": 36,
     },
     "pra2": {
         "lobby_icon": FARM_MEDIC_DEFENDER_ENTRY,
         "stage_icon": FARM_PRA2_DEFENDER_MEDIC_BUTTON,
+        "cost": 36,
     },
     "sk5": {
         "lobby_icon": FARM_CARBON_ENTRY,
         "stage_icon": FARM_SK5_CARBON_BUTTON,
+        "cost": 36,
     },
 }
 
