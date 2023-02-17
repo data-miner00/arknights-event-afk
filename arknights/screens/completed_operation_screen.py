@@ -5,3 +5,4 @@ COMPLETED_ANNIHILATION_INDICATOR_1 = (
 COMPLETED_ANNIHILATION_INDICATOR_2 = (
     "images/arkn_annihilation_completed_indicator_2.png"
 )
+LEVEL_UP_INDICATOR = "images/arkn_level_up_indicator.png"

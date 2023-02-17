@@ -26,7 +26,7 @@ def parse_args():
         "--stage",
         help="the stage to be farmed",
         default="ls6",
-        choices=["ls6", "ca5", "ce6", "pra2", "prb2", "prc2", "prd2", "sk5"]
+        choices=["ls6", "ca5", "ce6", "pra2", "prb2", "prc2", "prd2", "sk5"],
     )
     parser.add_argument(
         "-sl",
@@ -61,7 +61,7 @@ def parse_args():
         "--login-only",
         action=argparse.BooleanOptionalAction,
         help="flag to just navigate to lobby screen from login",
-        default=False
+        default=False,
     )
 
     return parser.parse_args()

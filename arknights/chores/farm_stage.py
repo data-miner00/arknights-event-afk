@@ -3,6 +3,7 @@ from arknights import (
     wait_until_operation_completed,
     is_enough_sanity,
     wait_for_seconds,
+    try_locate_image_on_screen,
 )
 from arknights.screens.home_screen import BATTLE_BUTTON
 from arknights.screens.operation_selection_screen import SELECT_FARM_LOBBY_BUTTON
@@ -28,7 +29,10 @@ from arknights.screens.stage_selection_screen import (
     FARM_SK5_CARBON_BUTTON,
 )
 from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
-from arknights.screens.completed_operation_screen import COMPLETED_OPERATION_INDICATOR
+from arknights.screens.completed_operation_screen import (
+    COMPLETED_OPERATION_INDICATOR,
+    LEVEL_UP_INDICATOR,
+)
 from arknights.chores.sanity import refill_sanity
 
 
@@ -58,7 +62,7 @@ stage_map = {
     "sk5": {
         "lobby_icon": FARM_CARBON_ENTRY,
         "stage_icon": FARM_SK5_CARBON_BUTTON,
-    }
+    },
 }
 
 
@@ -107,6 +111,21 @@ def start_farming(refill_count=0):
         )
 
         wait_for_seconds(80)
+
+        while True:
+            wait_for_seconds(2)
+            levelUp = try_locate_image_on_screen(LEVEL_UP_INDICATOR)
+
+            if levelUp:
+                locate_image_position_and_click(LEVEL_UP_INDICATOR)
+
+            completedOperation = try_locate_image_on_screen(
+                COMPLETED_OPERATION_INDICATOR
+            )
+
+            if completedOperation:
+                break
+
         wait_until_operation_completed(
             lambda: locate_image_position_and_click(COMPLETED_OPERATION_INDICATOR)
         )

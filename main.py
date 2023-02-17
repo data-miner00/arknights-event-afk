@@ -14,7 +14,7 @@ if __name__ == "__main__":
     login_only = args.login_only
 
     if skip_login and login_only:
-        print('Cannot specify skip login and login only at the same time')
+        print("Cannot specify skip login and login only at the same time")
         sys.exit()
 
     if not skip_login:
