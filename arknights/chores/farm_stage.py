@@ -1,3 +1,4 @@
+import logging
 from arknights import (
     locate_image_position_and_click,
     wait_until_operation_completed,
@@ -111,13 +112,13 @@ def start_farming(refill_count=0):
             if refill_count > 0:
                 refill_sanity()
                 refill_count -= 1
-                print(f"Refill left: {str(refill_count)}")
+                logging.info(f"Refill left: {str(refill_count)}")
 
                 wait_until_operation_completed(
                     lambda: locate_image_position_and_click(PREPARE_OPERATION_BUTTON)
                 )
             else:
-                print("Not enough sanity to proceed.")
+                logging.warning("Not enough sanity to proceed. Program exited.")
                 break
 
         wait_until_operation_completed(
@@ -131,6 +132,7 @@ def start_farming(refill_count=0):
             levelUp = try_locate_image_on_screen(LEVEL_UP_INDICATOR)
 
             if levelUp:
+                logging.info("Level up detected. Closing the popup...")
                 locate_image_position_and_click(LEVEL_UP_INDICATOR)
 
             completedOperation = try_locate_image_on_screen(
@@ -144,5 +146,5 @@ def start_farming(refill_count=0):
             lambda: locate_image_position_and_click(COMPLETED_OPERATION_INDICATOR)
         )
 
-        print(f"Round {round} completed.")
+        logging.info(f"Round {round} completed.")
         round += 1
