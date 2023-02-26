@@ -35,5 +35,11 @@ def wait_until_operation_completed(callback):
         try:
             callback()
             break
-        except Exception as e:
+        except Exception:
             wait_for_seconds(1)
+
+
+def try_locate_image_on_screen(image_path: str, confidence=0.7) -> bool:
+    location = pyautogui.locateCenterOnScreen(image_path, confidence=confidence)
+
+    return location is not None

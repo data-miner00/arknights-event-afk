@@ -8,6 +8,8 @@ pyautogui = "*"
 opencv-python = "*"
 numpy = "*"
 matplotlib = "*"
+colorama = "*"
+ruff = "*"
 
 [dev-packages]
 black = "*"
