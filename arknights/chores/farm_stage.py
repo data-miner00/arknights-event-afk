@@ -99,7 +99,6 @@ def navigate_to_target_stage(stage: str):
 
 
 def start_farming(refill_count=0):
-    logger = logging.getLogger()
     round = 1
 
     while True:
@@ -113,13 +112,13 @@ def start_farming(refill_count=0):
             if refill_count > 0:
                 refill_sanity()
                 refill_count -= 1
-                logger.info(f"Refill left: {str(refill_count)}")
+                logging.info(f"Refill left: {str(refill_count)}")
 
                 wait_until_operation_completed(
                     lambda: locate_image_position_and_click(PREPARE_OPERATION_BUTTON)
                 )
             else:
-                logger.warning("Not enough sanity to proceed. Program exited.")
+                logging.warning("Not enough sanity to proceed. Program exited.")
                 break
 
         wait_until_operation_completed(
@@ -133,7 +132,7 @@ def start_farming(refill_count=0):
             levelUp = try_locate_image_on_screen(LEVEL_UP_INDICATOR)
 
             if levelUp:
-                logger.warning("Level up detected. Closing the popup...")
+                logging.warning("Level up detected. Closing the popup...")
                 locate_image_position_and_click(LEVEL_UP_INDICATOR)
 
             completedOperation = try_locate_image_on_screen(
@@ -147,5 +146,5 @@ def start_farming(refill_count=0):
             lambda: locate_image_position_and_click(COMPLETED_OPERATION_INDICATOR)
         )
 
-        logger.info(f"Round {round} completed.")
+        logging.info(f"Round {round} completed.")
         round += 1
