@@ -28,6 +28,10 @@ from arknights.screens.stage_selection_screen import (
     FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
     FARM_PRA2_DEFENDER_MEDIC_BUTTON,
     FARM_SK5_CARBON_BUTTON,
+    FARM_PRA1_DEFENDER_MEDIC_BUTTON,
+    FARM_PRB1_SNIPER_CASTER_BUTTON,
+    FARM_PRC1_VANGUARD_SUPPORTER_BUTTON,
+    FARM_PRD1_GUARD_SPECIALIST_BUTTON,
 )
 from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
 from arknights.screens.completed_operation_screen import (
@@ -53,20 +57,40 @@ stage_map = {
         "stage_icon": FARM_LS6_EXP_BUTTON,
         "cost": 36,
     },
+    "prb1": {
+        "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
+        "stage_icon": FARM_PRB1_SNIPER_CASTER_BUTTON,
+        "cost": 18,
+    },
     "prb2": {
         "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
         "stage_icon": FARM_PRB2_SNIPER_CASTER_BUTTON,
         "cost": 36,
+    },
+    "prd1": {
+        "lobby_icon": FARM_GUARD_SPECIALIST_ENTRY,
+        "stage_icon": FARM_PRD1_GUARD_SPECIALIST_BUTTON,
+        "cost": 18,
     },
     "prd2": {
         "lobby_icon": FARM_GUARD_SPECIALIST_ENTRY,
         "stage_icon": FARM_PRD2_GUARD_SPECIALIST_BUTTON,
         "cost": 36,
     },
+    "prc1": {
+        "lobby_icon": FARM_VANGUARD_SUPPORTER_ENTRY,
+        "stage_icon": FARM_PRC1_VANGUARD_SUPPORTER_BUTTON,
+        "cost": 18,
+    },
     "prc2": {
         "lobby_icon": FARM_VANGUARD_SUPPORTER_ENTRY,
         "stage_icon": FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
         "cost": 36,
+    },
+    "pra1": {
+        "lobby_icon": FARM_MEDIC_DEFENDER_ENTRY,
+        "stage_icon": FARM_PRA1_DEFENDER_MEDIC_BUTTON,
+        "cost": 18,
     },
     "pra2": {
         "lobby_icon": FARM_MEDIC_DEFENDER_ENTRY,
@@ -94,7 +118,7 @@ def navigate_to_target_stage(stage: str):
         lambda: locate_image_position_and_click(stage_ui["lobby_icon"])
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(stage_ui["stage_icon"])
+        lambda: locate_image_position_and_click(stage_ui["stage_icon"], confidence=0.95)
     )
 
 
@@ -132,7 +156,7 @@ def start_farming(refill_count=0):
             levelUp = try_locate_image_on_screen(LEVEL_UP_INDICATOR)
 
             if levelUp:
-                logging.info("Level up detected. Closing the popup...")
+                logging.warning("Level up detected. Closing the popup...")
                 locate_image_position_and_click(LEVEL_UP_INDICATOR)
 
             completedOperation = try_locate_image_on_screen(
