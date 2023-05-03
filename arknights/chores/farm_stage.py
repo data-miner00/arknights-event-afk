@@ -6,100 +6,76 @@ from arknights import (
     wait_for_seconds,
     try_locate_image_on_screen,
 )
-from arknights.screens.home_screen import BATTLE_BUTTON
-from arknights.screens.operation_selection_screen import SELECT_FARM_LOBBY_BUTTON
-from arknights.screens.farm_item_lobby_screen import (
-    FARM_EXP_ENTRY,
-    FARM_MONEY_ENTRY,
-    FARM_TALENT_BOOK_ENTRY,
-    FARM_MEDIC_DEFENDER_ENTRY,
-    FARM_GUARD_SPECIALIST_ENTRY,
-    FARM_VANGUARD_SUPPORTER_ENTRY,
-    FARM_SNIPER_CASTER_ENTRY,
-    FARM_CARBON_ENTRY,
-)
-from arknights.screens.stage_selection_screen import (
-    FARM_CA5_TALENT_BOOK_BUTTON,
-    FARM_CE6_MONEY_BUTTON,
-    FARM_LS6_EXP_BUTTON,
-    PREPARE_OPERATION_BUTTON,
-    FARM_PRB2_SNIPER_CASTER_BUTTON,
-    FARM_PRD2_GUARD_SPECIALIST_BUTTON,
-    FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
-    FARM_PRA2_DEFENDER_MEDIC_BUTTON,
-    FARM_SK5_CARBON_BUTTON,
-    FARM_PRA1_DEFENDER_MEDIC_BUTTON,
-    FARM_PRB1_SNIPER_CASTER_BUTTON,
-    FARM_PRC1_VANGUARD_SUPPORTER_BUTTON,
-    FARM_PRD1_GUARD_SPECIALIST_BUTTON,
-)
-from arknights.screens.team_selection_screen import START_OPERATION_BUTTON
-from arknights.screens.completed_operation_screen import (
-    COMPLETED_OPERATION_INDICATOR,
-    LEVEL_UP_INDICATOR,
+from arknights.screens import (
+    HomeScreen,
+    OperationSelectionScreen,
+    FarmItemLobbyScreen,
+    StageSelectionScreen,
+    TeamSelectionScreen,
+    CompletedOperationScreen
 )
 from arknights.chores.sanity import refill_sanity
 
 
 stage_map = {
     "ca5": {
-        "lobby_icon": FARM_TALENT_BOOK_ENTRY,
-        "stage_icon": FARM_CA5_TALENT_BOOK_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_TALENT_BOOK_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_CA5_TALENT_BOOK_BUTTON.value,
         "cost": 30,
     },
     "ce6": {
-        "lobby_icon": FARM_MONEY_ENTRY,
-        "stage_icon": FARM_CE6_MONEY_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_MONEY_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_CE6_MONEY_BUTTON.value,
         "cost": 36,
     },
     "ls6": {
-        "lobby_icon": FARM_EXP_ENTRY,
-        "stage_icon": FARM_LS6_EXP_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_EXP_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_LS6_EXP_BUTTON.value,
         "cost": 36,
     },
     "prb1": {
-        "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
-        "stage_icon": FARM_PRB1_SNIPER_CASTER_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_SNIPER_CASTER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRB1_SNIPER_CASTER_BUTTON.value,
         "cost": 18,
     },
     "prb2": {
-        "lobby_icon": FARM_SNIPER_CASTER_ENTRY,
-        "stage_icon": FARM_PRB2_SNIPER_CASTER_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_SNIPER_CASTER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRB2_SNIPER_CASTER_BUTTON.value,
         "cost": 36,
     },
     "prd1": {
-        "lobby_icon": FARM_GUARD_SPECIALIST_ENTRY,
-        "stage_icon": FARM_PRD1_GUARD_SPECIALIST_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_GUARD_SPECIALIST_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRD1_GUARD_SPECIALIST_BUTTON.value,
         "cost": 18,
     },
     "prd2": {
-        "lobby_icon": FARM_GUARD_SPECIALIST_ENTRY,
-        "stage_icon": FARM_PRD2_GUARD_SPECIALIST_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_GUARD_SPECIALIST_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRD2_GUARD_SPECIALIST_BUTTON.value,
         "cost": 36,
     },
     "prc1": {
-        "lobby_icon": FARM_VANGUARD_SUPPORTER_ENTRY,
-        "stage_icon": FARM_PRC1_VANGUARD_SUPPORTER_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_VANGUARD_SUPPORTER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRC1_VANGUARD_SUPPORTER_BUTTON.value,
         "cost": 18,
     },
     "prc2": {
-        "lobby_icon": FARM_VANGUARD_SUPPORTER_ENTRY,
-        "stage_icon": FARM_PRC2_VANGUARD_SUPPORTER_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_VANGUARD_SUPPORTER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRC2_VANGUARD_SUPPORTER_BUTTON.value,
         "cost": 36,
     },
     "pra1": {
-        "lobby_icon": FARM_MEDIC_DEFENDER_ENTRY,
-        "stage_icon": FARM_PRA1_DEFENDER_MEDIC_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_MEDIC_DEFENDER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRA1_DEFENDER_MEDIC_BUTTON.value,
         "cost": 18,
     },
     "pra2": {
-        "lobby_icon": FARM_MEDIC_DEFENDER_ENTRY,
-        "stage_icon": FARM_PRA2_DEFENDER_MEDIC_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_MEDIC_DEFENDER_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_PRA2_DEFENDER_MEDIC_BUTTON.value,
         "cost": 36,
     },
     "sk5": {
-        "lobby_icon": FARM_CARBON_ENTRY,
-        "stage_icon": FARM_SK5_CARBON_BUTTON,
+        "lobby_icon": FarmItemLobbyScreen.FARM_CARBON_ENTRY.value,
+        "stage_icon": StageSelectionScreen.FARM_SK5_CARBON_BUTTON.value,
         "cost": 36,
     },
 }
@@ -109,16 +85,16 @@ def navigate_to_target_stage(stage: str):
     stage_ui = stage_map[stage]
 
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(BATTLE_BUTTON)
+        lambda: locate_image_position_and_click(HomeScreen.BATTLE_BUTTON.value)
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(SELECT_FARM_LOBBY_BUTTON)
+        lambda: locate_image_position_and_click(OperationSelectionScreen.SELECT_FARM_LOBBY_BUTTON.value)
     )
     wait_until_operation_completed(
         lambda: locate_image_position_and_click(stage_ui["lobby_icon"])
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(stage_ui["stage_icon"], confidence=0.95)
+        lambda: locate_image_position_and_click(stage_ui["stage_icon"], confidence=0.98)
     )
 
 
@@ -128,7 +104,7 @@ def start_farming(refill_count=0):
     while True:
         wait_for_seconds(2)
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(PREPARE_OPERATION_BUTTON)
+            lambda: locate_image_position_and_click(StageSelectionScreen.PREPARE_OPERATION_BUTTON.value)
         )
         wait_for_seconds(3)
 
@@ -139,35 +115,35 @@ def start_farming(refill_count=0):
                 logging.info(f"Refill left: {str(refill_count)}")
 
                 wait_until_operation_completed(
-                    lambda: locate_image_position_and_click(PREPARE_OPERATION_BUTTON)
+                    lambda: locate_image_position_and_click(StageSelectionScreen.PREPARE_OPERATION_BUTTON.value)
                 )
             else:
                 logging.warning("Not enough sanity to proceed. Program exited.")
                 break
 
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(START_OPERATION_BUTTON)
+            lambda: locate_image_position_and_click(TeamSelectionScreen.START_OPERATION_BUTTON.value)
         )
 
         wait_for_seconds(80)
 
         while True:
             wait_for_seconds(2)
-            levelUp = try_locate_image_on_screen(LEVEL_UP_INDICATOR)
+            levelUp = try_locate_image_on_screen(CompletedOperationScreen.LEVEL_UP_INDICATOR.value)
 
             if levelUp:
                 logging.warning("Level up detected. Closing the popup...")
-                locate_image_position_and_click(LEVEL_UP_INDICATOR)
+                locate_image_position_and_click(CompletedOperationScreen.LEVEL_UP_INDICATOR.value)
 
             completedOperation = try_locate_image_on_screen(
-                COMPLETED_OPERATION_INDICATOR
+                CompletedOperationScreen.COMPLETED_OPERATION_INDICATOR.value
             )
 
             if completedOperation:
                 break
 
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(COMPLETED_OPERATION_INDICATOR)
+            lambda: locate_image_position_and_click(CompletedOperationScreen.COMPLETED_OPERATION_INDICATOR.value)
         )
 
         logging.info(f"Round {round} completed.")
