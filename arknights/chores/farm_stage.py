@@ -12,7 +12,7 @@ from arknights.screens import (
     FarmItemLobbyScreen,
     StageSelectionScreen,
     TeamSelectionScreen,
-    CompletedOperationScreen
+    CompletedOperationScreen,
 )
 from arknights.chores.sanity import refill_sanity
 
@@ -88,7 +88,9 @@ def navigate_to_target_stage(stage: str):
         lambda: locate_image_position_and_click(HomeScreen.BATTLE_BUTTON.value)
     )
     wait_until_operation_completed(
-        lambda: locate_image_position_and_click(OperationSelectionScreen.SELECT_FARM_LOBBY_BUTTON.value)
+        lambda: locate_image_position_and_click(
+            OperationSelectionScreen.SELECT_FARM_LOBBY_BUTTON.value
+        )
     )
     wait_until_operation_completed(
         lambda: locate_image_position_and_click(stage_ui["lobby_icon"])
@@ -104,7 +106,9 @@ def start_farming(refill_count=0):
     while True:
         wait_for_seconds(2)
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(StageSelectionScreen.PREPARE_OPERATION_BUTTON.value)
+            lambda: locate_image_position_and_click(
+                StageSelectionScreen.PREPARE_OPERATION_BUTTON.value
+            )
         )
         wait_for_seconds(3)
 
@@ -115,25 +119,33 @@ def start_farming(refill_count=0):
                 logging.info(f"Refill left: {str(refill_count)}")
 
                 wait_until_operation_completed(
-                    lambda: locate_image_position_and_click(StageSelectionScreen.PREPARE_OPERATION_BUTTON.value)
+                    lambda: locate_image_position_and_click(
+                        StageSelectionScreen.PREPARE_OPERATION_BUTTON.value
+                    )
                 )
             else:
                 logging.warning("Not enough sanity to proceed. Program exited.")
                 break
 
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(TeamSelectionScreen.START_OPERATION_BUTTON.value)
+            lambda: locate_image_position_and_click(
+                TeamSelectionScreen.START_OPERATION_BUTTON.value
+            )
         )
 
         wait_for_seconds(80)
 
         while True:
             wait_for_seconds(2)
-            levelUp = try_locate_image_on_screen(CompletedOperationScreen.LEVEL_UP_INDICATOR.value)
+            levelUp = try_locate_image_on_screen(
+                CompletedOperationScreen.LEVEL_UP_INDICATOR.value
+            )
 
             if levelUp:
                 logging.warning("Level up detected. Closing the popup...")
-                locate_image_position_and_click(CompletedOperationScreen.LEVEL_UP_INDICATOR.value)
+                locate_image_position_and_click(
+                    CompletedOperationScreen.LEVEL_UP_INDICATOR.value
+                )
 
             completedOperation = try_locate_image_on_screen(
                 CompletedOperationScreen.COMPLETED_OPERATION_INDICATOR.value
@@ -143,7 +155,9 @@ def start_farming(refill_count=0):
                 break
 
         wait_until_operation_completed(
-            lambda: locate_image_position_and_click(CompletedOperationScreen.COMPLETED_OPERATION_INDICATOR.value)
+            lambda: locate_image_position_and_click(
+                CompletedOperationScreen.COMPLETED_OPERATION_INDICATOR.value
+            )
         )
 
         logging.info(f"Round {round} completed.")
