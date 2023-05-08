@@ -16,7 +16,9 @@ if __name__ == "__main__":
     first_login = args.first_login
     login_only = args.login_only
 
-    logger.info(f"Session initiated with skip_login - {skip_login}, first_login - {first_login} and login_only - {login_only}")
+    logger.info(
+        f"Session initiated with skip_login - {skip_login}, first_login - {first_login} and login_only - {login_only}"
+    )
 
     if skip_login and login_only:
         logger.error("Cannot specify skip login and login only at the same time")
