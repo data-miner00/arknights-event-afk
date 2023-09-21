@@ -1,11 +1,14 @@
-from enum import Enum, auto
+from enum import Enum
 
 
 class DayOfWeek(Enum):
-    SUNDAY = auto()
-    MONDAY = auto()
-    TUESDAY = auto()
-    WEDNESDAY = auto()
-    THURSDAY = auto()
-    FRIDAY = auto()
-    SATURDAY = auto()
+    def __str__(self) -> str:
+        return str(self.value)
+
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"

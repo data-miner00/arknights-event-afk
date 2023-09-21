@@ -1,6 +1,7 @@
 import argparse
 import colorama
 from colorama import Fore
+from arknights.stage import stage_list
 
 
 def show_banner():
@@ -26,7 +27,7 @@ def parse_args():
         "--stage",
         help="the stage to be farmed",
         default="ls6",
-        choices=["ls6", "ca5", "ce6", "pra1", "pra2", "prb1", "prb2", "prc1", "prc2", "prd1", "prd2", "sk5"],
+        choices=stage_list,
     )
     parser.add_argument(
         "-sl",
@@ -62,6 +63,16 @@ def parse_args():
         action=argparse.BooleanOptionalAction,
         help="flag to just navigate to lobby screen from login",
         default=False,
+    )
+    parser.add_argument(
+        "-d",
+        "--describe",
+        help="describe the stage info",
+        nargs="?",
+        default=None,
+        const="all",
+        # choices=stage_list.append("all") or stage_list,
+        choices=stage_list + ["all"],
     )
 
     return parser.parse_args()
