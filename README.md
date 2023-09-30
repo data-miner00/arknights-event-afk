@@ -46,7 +46,7 @@ python main.py -h
 usage: Arknights CLI [-h] [-stg {ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2}]
                      [-sl | --skip-login | --no-skip-login] [-sn | --skip-navigation | --no-skip-navigation]
                      [-fl | --first-login | --no-first-login] [-rc REFILL_COUNT] [-lo | --login-only | --no-login-only]
-                     [-d [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}]]
+                     [-d [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}]] [-t | --today | --no-today]
 
 A CLI that automates the farming workflow for Arknights running on a PC emulator.
 
@@ -66,6 +66,8 @@ options:
                         flag to just navigate to lobby screen from login (default: False)
   -d [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}], --describe [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}]
                         describe the stage info
+  -t, --today, --no-today
+                        show today's available stages (default: False)
 ```
 
 ### 変数の説明
@@ -82,6 +84,7 @@ options:
 | `-rc`  | refill count    | 理性を自動的に補充する。補充回数の引数を受け入れます。既定の値は一回です。 |
 | `-lo`  | login only      | ログインだけです。                                                         |
 | `-d`   | describe        | オペレーションの情報を表示する。                                           |
+| `-t`   | today           | 今日のできるオペレーションを表示する。                                     |
 
 ## 作戦方法
 

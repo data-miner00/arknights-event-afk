@@ -74,5 +74,12 @@ def parse_args():
         # choices=stage_list.append("all") or stage_list,
         choices=stage_list + ["all"],
     )
+    parser.add_argument(
+        "-t",
+        "--today",
+        help="show today's available stages",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+    )
 
     return parser.parse_args()

@@ -1,5 +1,6 @@
 from enum import Enum
-from arknights.week import DayOfWeek
+from arknights.week import DayOfWeek, get_today_day_of_week
+from typing import List
 
 
 class Stage(Enum):
@@ -126,3 +127,15 @@ def show_info(stage):
             show_individual_info(stg)
     else:
         show_individual_info(stage)
+
+
+def get_today_stages() -> List[str]:
+    day_of_week = get_today_day_of_week()
+    today_stages = list(
+        filter(
+            lambda pair: day_of_week in pair[1],
+            list(stage_available_day_of_week.items()),
+        )
+    )
+    today_stages_str = list(map(lambda stage: str(stage[0]), today_stages))
+    return today_stages_str
