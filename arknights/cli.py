@@ -19,7 +19,7 @@ def show_banner():
 def parse_args():
     parser = argparse.ArgumentParser(
         prog="Arknights CLI",
-        description="A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.",
+        description="A CLI that automates the farming workflow for Arknights running on a PC emulator.",
         epilog="arkn/arkn 0.1.0",
     )
     parser.add_argument(

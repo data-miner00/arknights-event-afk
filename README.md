@@ -43,16 +43,16 @@ python main.py -h
 その後はプログラムの機能を全て詳しく表示します。
 
 ```
-usage: Arknights CLI [-h] [-stg {ls6,ca5,ce6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,sk5}]
+usage: Arknights CLI [-h] [-stg {ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2}]
                      [-sl | --skip-login | --no-skip-login] [-sn | --skip-navigation | --no-skip-navigation]
-                     [-fl | --first-login | --no-first-login] [-rc REFILL_COUNT]
-                     [-lo | --login-only | --no-login-only]
+                     [-fl | --first-login | --no-first-login] [-rc REFILL_COUNT] [-lo | --login-only | --no-login-only]
+                     [-d [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}]]
 
-A CLI that helps on automating the farming workflow for Arknights running on a PC emulator.
+A CLI that automates the farming workflow for Arknights running on a PC emulator.
 
 options:
   -h, --help            show this help message and exit
-  -stg {ls6,ca5,ce6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,sk5}, --stage {ls6,ca5,ce6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,sk5}
+  -stg {ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2}, --stage {ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2}
                         the stage to be farmed
   -sl, --skip-login, --no-skip-login
                         flag to skip the login process from the landing page (default: False)
@@ -64,6 +64,8 @@ options:
                         refill count to perform when the sanity runs out
   -lo, --login-only, --no-login-only
                         flag to just navigate to lobby screen from login (default: False)
+  -d [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}], --describe [{ca5,sk5,ce6,ls6,pra1,pra2,prb1,prb2,prc1,prc2,prd1,prd2,all}]
+                        describe the stage info
 ```
 
 ### 変数の説明
@@ -79,6 +81,7 @@ options:
 | `-fl`  | first login     | 当日の初めてログインですか？カレンダーポップアップ閉めじるのため必要。     |
 | `-rc`  | refill count    | 理性を自動的に補充する。補充回数の引数を受け入れます。既定の値は一回です。 |
 | `-lo`  | login only      | ログインだけです。                                                         |
+| `-d`   | describe        | オペレーションの情報を表示する。                                           |
 
 ## 作戦方法
 
