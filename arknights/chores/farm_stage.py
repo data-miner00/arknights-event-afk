@@ -107,7 +107,7 @@ def start_farming(refill_count=0):
         wait_for_seconds(2)
         wait_until_operation_completed(
             lambda: locate_image_position_and_click(
-                StageSelectionScreen.PREPARE_OPERATION_BUTTON.value
+                StageSelectionScreen.PREPARE_OPERATION_BUTTON_VARIANT_3.value
             )
         )
         wait_for_seconds(3)
@@ -120,7 +120,7 @@ def start_farming(refill_count=0):
 
                 wait_until_operation_completed(
                     lambda: locate_image_position_and_click(
-                        StageSelectionScreen.PREPARE_OPERATION_BUTTON.value
+                        StageSelectionScreen.PREPARE_OPERATION_BUTTON_VARIANT_3.value
                     )
                 )
             else:
