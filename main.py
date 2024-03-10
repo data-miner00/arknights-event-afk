@@ -1,4 +1,5 @@
 import sys
+import winsound
 from arknights.chores.login import from_login_to_lobby, close_calendar
 from arknights.chores.farm_stage import navigate_to_target_stage, start_farming
 from arknights.cli import show_banner, parse_args
@@ -51,3 +52,6 @@ if __name__ == "__main__":
 
     refill_count = args.refill_count
     start_farming(refill_count)
+
+    print('\a')
+    winsound.Beep(200, 8000)
