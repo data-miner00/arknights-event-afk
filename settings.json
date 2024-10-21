@@ -1,4 +1,14 @@
 {
-  "timeout": 300,
-  "confidence": 0.7
+  "general": {
+    "timeoutInSeconds": 300,
+    "openCVConfidence": 0.7,
+    "endSoundDurationInSeconds": 8
+  },
+  "logging": {
+    "rollingFile": {
+      "folderPath": "D://logs",
+      "isEnabled": true,
+      "fileFormat": "%Y-%m-%d"
+    }
+  }
 }
